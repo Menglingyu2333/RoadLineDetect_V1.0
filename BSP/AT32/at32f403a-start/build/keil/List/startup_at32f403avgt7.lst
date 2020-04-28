@@ -609,13 +609,13 @@ ARM Macro Assembler    Page 10
               00000400 
               00000200 
               00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
-interwork --depend=.\build\keil\obj\startup_at32f403avgt7.d -o.\build\keil\obj\
-startup_at32f403avgt7.o -I.\RTE\_rt-thread -IG:\Users\MengLingyu\AppData\Local\
-Arm\Packs\Keil\AT32F4xx_DFP\1.3.1\Device\Include -IG:\Keil_v5\ARM\CMSIS\Include
- --predefine="__UVISION_VERSION SETA 529" --predefine="AT32F403AVGT7 SETA 1" --
-list=.\build\keil\list\startup_at32f403avgt7.lst ..\Libraries\AT32_Std_Driver\C
-MSIS\AT32\AT32F4xx\src\mdk\startup_at32f403avgt7.s
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\build\keil\obj\startup_at32f403avgt7.d -o.\build\keil\obj\sta
+rtup_at32f403avgt7.o -I.\RTE\_rt-thread -IC:\Users\MengLingyu\AppData\Local\Arm
+\Packs\Keil\AT32F4xx_DFP\1.3.1\Device\Include -IC:\Keil_v5\ARM\CMSIS\Include --
+predefine="__UVISION_VERSION SETA 525" --predefine="AT32F403AVGT7 SETA 1" --lis
+t=.\build\keil\list\startup_at32f403avgt7.lst ..\Libraries\AT32_Std_Driver\CMSI
+S\AT32\AT32F4xx\src\mdk\startup_at32f403avgt7.s
 
 
 

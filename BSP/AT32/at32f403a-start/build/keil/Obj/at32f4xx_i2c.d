@@ -2,7 +2,7 @@
 .\build\keil\obj\at32f4xx_i2c.o: ..\Libraries\AT32_Std_Driver\AT32F4xx_StdPeriph_Driver\inc\at32f4xx_i2c.h
 .\build\keil\obj\at32f4xx_i2c.o: ..\Libraries\AT32_Std_Driver\CMSIS\AT32\AT32F4xx\inc\at32f4xx.h
 .\build\keil\obj\at32f4xx_i2c.o: ..\Libraries\AT32_Std_Driver\CMSIS\core_cm4.h
-.\build\keil\obj\at32f4xx_i2c.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\keil\obj\at32f4xx_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\build\keil\obj\at32f4xx_i2c.o: ..\Libraries\AT32_Std_Driver\CMSIS\core_cmInstr.h
 .\build\keil\obj\at32f4xx_i2c.o: ..\Libraries\AT32_Std_Driver\CMSIS\cmsis_armcc.h
 .\build\keil\obj\at32f4xx_i2c.o: ..\Libraries\AT32_Std_Driver\CMSIS\core_cmFunc.h

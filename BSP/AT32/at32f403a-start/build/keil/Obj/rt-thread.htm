@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\build\keil\Obj\rt-thread.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\build\keil\Obj\rt-thread.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Apr 19 18:21:51 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Apr 26 10:08:56 2020
 <BR><P>
 <H3>Maximum Stack Usage =       1196 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -918,7 +918,8 @@ Global Symbols
 <P><STRONG><a name="[ec]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;list_thread
+<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;list_thread
 <LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_fattime
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
 </UL>
@@ -3194,18 +3195,22 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_seek
 </UL>
 
-<P><STRONG><a name="[207]"></a>$Super$$main</STRONG> (Thumb, 114 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 524<LI>Call Chain = $Super$$main &rArr; rt_thread_mdelay &rArr; rt_thread_sleep &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; list_thread &rArr; object_split &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
+<P><STRONG><a name="[207]"></a>$Super$$main</STRONG> (Thumb, 162 bytes, Stack size 24 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 548<LI>Call Chain = $Super$$main &rArr; rt_thread_mdelay &rArr; rt_thread_sleep &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; list_thread &rArr; object_split &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
-<BR>[Calls]<UL><LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_mdelay
+<BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_device_write
+<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_device_open
+<LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_device_find
+<LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_mdelay
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_pin_write
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_pin_mode
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_thread_entry
 </UL>
 
 <P><STRONG><a name="[61]"></a>main_thread_entry</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, components.o(i.main_thread_entry))
-<BR><BR>[Stack]<UL><LI>Max Depth = 532<LI>Call Chain = main_thread_entry &rArr; $Super$$main &rArr; rt_thread_mdelay &rArr; rt_thread_sleep &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; list_thread &rArr; object_split &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
+<BR><BR>[Stack]<UL><LI>Max Depth = 556<LI>Call Chain = main_thread_entry &rArr; $Super$$main &rArr; rt_thread_mdelay &rArr; rt_thread_sleep &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; list_thread &rArr; object_split &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_components_init
@@ -3643,6 +3648,7 @@ Global Symbols
 <LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_self
 </UL>
 <BR>[Called By]<UL><LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_device_register
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_console_set_device
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfs_device_fs_stat
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfs_device_fs_open
@@ -3657,7 +3663,8 @@ Global Symbols
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_kprintf
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_assert_handler
 </UL>
-<BR>[Called By]<UL><LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_console_set_device
+<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
+<LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_console_set_device
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfs_device_fs_open
 <LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfs_mount
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_fops_open
@@ -3713,6 +3720,7 @@ Global Symbols
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_assert_handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_kprintf
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfs_device_fs_write
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_fops_write
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_write
