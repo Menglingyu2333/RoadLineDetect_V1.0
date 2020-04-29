@@ -2,7 +2,7 @@
 .\build\keil\obj\drv_gpio.o: board\board.h
 .\build\keil\obj\drv_gpio.o: ..\Libraries\AT32_Std_Driver\CMSIS\AT32\AT32F4xx\inc\at32f4xx.h
 .\build\keil\obj\drv_gpio.o: ..\Libraries\AT32_Std_Driver\CMSIS\core_cm4.h
-.\build\keil\obj\drv_gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\keil\obj\drv_gpio.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\build\keil\obj\drv_gpio.o: ..\Libraries\AT32_Std_Driver\CMSIS\core_cmInstr.h
 .\build\keil\obj\drv_gpio.o: ..\Libraries\AT32_Std_Driver\CMSIS\cmsis_armcc.h
 .\build\keil\obj\drv_gpio.o: ..\Libraries\AT32_Std_Driver\CMSIS\core_cmFunc.h
@@ -42,16 +42,16 @@
 .\build\keil\obj\drv_gpio.o: .\rtconfig.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\rtdebug.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\rtdef.h
-.\build\keil\obj\drv_gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\keil\obj\drv_gpio.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\rtlibc.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\libc/libc_stat.h
-.\build\keil\obj\drv_gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\build\keil\obj\drv_gpio.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\libc/libc_errno.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\libc/libc_fcntl.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\libc/libc_ioctl.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\libc/libc_dirent.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\libc/libc_signal.h
-.\build\keil\obj\drv_gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\signal.h
+.\build\keil\obj\drv_gpio.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\signal.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\libc/libc_fdset.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\rtservice.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\include\rtm.h
@@ -67,5 +67,7 @@
 .\build\keil\obj\drv_gpio.o: ..\..\..\components\drivers\include\rtdevice.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\components\drivers\include\ipc/poll.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\build\keil\obj\drv_gpio.o: ..\..\..\components\drivers\include\drivers/spi.h
+.\build\keil\obj\drv_gpio.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\components\drivers\include\drivers/serial.h
 .\build\keil\obj\drv_gpio.o: ..\..\..\components\drivers\include\drivers/pin.h

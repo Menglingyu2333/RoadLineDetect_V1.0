@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 ".\build\keil\obj\clock.o"
 ".\build\keil\obj\components.o"
 ".\build\keil\obj\device.o"
@@ -21,6 +21,7 @@
 ".\build\keil\obj\startup_at32f403avgt7.o"
 ".\build\keil\obj\drv_gpio.o"
 ".\build\keil\obj\drv_usart.o"
+".\build\keil\obj\drv_spi.o"
 ".\build\keil\obj\backtrace.o"
 ".\build\keil\obj\div0.o"
 ".\build\keil\obj\showmem.o"
@@ -38,6 +39,8 @@
 ".\build\keil\obj\ccsbcs.o"
 ".\build\keil\obj\pin.o"
 ".\build\keil\obj\serial.o"
+".\build\keil\obj\spi_core.o"
+".\build\keil\obj\spi_dev.o"
 ".\build\keil\obj\completion.o"
 ".\build\keil\obj\dataqueue.o"
 ".\build\keil\obj\pipe.o"

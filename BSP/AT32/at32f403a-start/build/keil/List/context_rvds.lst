@@ -362,12 +362,12 @@ ARM Macro Assembler    Page 6
               E000ED04 
               E000ED20 
               E000ED08 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=.\build\keil\obj\context_rvds.d -o.\build\keil\obj\context_rvds
-.o -I.\RTE\_rt-thread -IC:\Users\MengLingyu\AppData\Local\Arm\Packs\Keil\AT32F4
-xx_DFP\1.3.1\Device\Include -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__UVISI
-ON_VERSION SETA 525" --predefine="AT32F403AVGT7 SETA 1" --list=.\build\keil\lis
-t\context_rvds.lst ..\..\..\libcpu\arm\cortex-m4\context_rvds.S
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
+interwork --depend=.\build\keil\obj\context_rvds.d -o.\build\keil\obj\context_r
+vds.o -I.\RTE\_rt-thread -IG:\Users\MengLingyu\AppData\Local\Arm\Packs\Keil\AT3
+2F4xx_DFP\1.3.1\Device\Include -IG:\Keil_v5\ARM\CMSIS\Include --predefine="__UV
+ISION_VERSION SETA 529" --predefine="AT32F403AVGT7 SETA 1" --list=.\build\keil\
+list\context_rvds.lst ..\..\..\libcpu\arm\cortex-m4\context_rvds.S
 
 
 

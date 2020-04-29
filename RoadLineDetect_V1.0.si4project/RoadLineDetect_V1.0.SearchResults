@@ -1,0 +1,3 @@
+---- typedef uint32_t Matches (2 in 1 files) ----
+at32f4xx.h (BSP\AT32\Libraries\AT32_Std_Driver\CMSIS\AT32\AT32F4xx\inc) line 1306 : typedef uint32_t UINT32;
+at32f4xx.h (BSP\AT32\Libraries\AT32_Std_Driver\CMSIS\AT32\AT32F4xx\inc) line 1327 : typedef uint32_t u32;

@@ -12,7 +12,7 @@
 #define __DRV_SPI__
 
 #include <rtthread.h>
-#include <drivers/spi.h>
+#include "drivers/spi.h"
 #include "at32f4xx.h"
 
 struct at32_spi_config
