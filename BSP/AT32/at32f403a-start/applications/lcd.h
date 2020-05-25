@@ -1,11 +1,13 @@
 #ifndef __LCD_H
-#define __LCD_H		
-#include "sys.h"	 
+#define __LCD_H
+#include "sys.h"
 #include "stdlib.h"
+
+#include <rtthread.h>
 
 /****************************************************************************************************
 //=======================================液晶屏数据线接线==========================================//
-STM32 PB组接液晶屏DB0~DB16,举例依次为DB0接PB0,..DB15接PB15.   
+STM32 PB组接液晶屏DB0~DB16,举例依次为DB0接PB0,..DB15接PB15.
 //=======================================液晶屏控制线接线==========================================//
 //LCD_CS	接PC9	//片选信号
 //LCD_RS	接PC8	//寄存器/数据选择信号
@@ -20,27 +22,27 @@ STM32 PB组接液晶屏DB0~DB16,举例依次为DB0接PB0,..DB15接PB15.
 //PEN		接PC1	//触摸屏中断信号
 //TCS		接PC13	//触摸IC片选
 //CLK		接PC0	//SPI总线时钟
-**************************************************************************************************/	
+**************************************************************************************************/
 
 //LCD重要参数集
-typedef struct  
-{										    
+typedef struct
+{
 	u16 width;			//LCD 宽度
 	u16 height;			//LCD 高度
 	u16 id;				//LCD ID
-	u8  dir;			//横屏还是竖屏控制：0，竖屏；1，横屏。	
+	u8  dir;			//横屏还是竖屏控制：0，竖屏；1，横屏。
 	u16	 wramcmd;		//开始写gram指令
 	u16  setxcmd;		//设置x坐标指令
-	u16  setycmd;		//设置y坐标指令	 
-}_lcd_dev; 	
+	u16  setycmd;		//设置y坐标指令
+}_lcd_dev;
 
 //LCD参数
 extern _lcd_dev lcddev;	//管理LCD重要参数
-/////////////////////////////////////用户配置区///////////////////////////////////	 
+/////////////////////////////////////用户配置区///////////////////////////////////
 //支持横竖屏快速定义切换，支持8/16位模式切换
-#define USE_HORIZONTAL  	1	//定义是否使用横屏 		0,不使用.1,使用.
+#define USE_HORIZONTAL  	0	//定义是否使用横屏 		0,不使用.1,使用.
 #define LCD_USE8BIT_MODEL   0    //定义数据总线是否使用8位模式 0,使用16位模式.1,使用8位模式
-//////////////////////////////////////////////////////////////////////////////////	  
+//////////////////////////////////////////////////////////////////////////////////
 //定义LCD的尺寸
 #if USE_HORIZONTAL==1	//使用横屏
 #define LCD_W 320
@@ -50,31 +52,31 @@ extern _lcd_dev lcddev;	//管理LCD重要参数
 #define LCD_H 320
 #endif
 
-//TFTLCD部分外要调用的函数		   
-extern u16  POINT_COLOR;//默认红色    
+//TFTLCD部分外要调用的函数
+extern u16  POINT_COLOR;//默认红色
 extern u16  BACK_COLOR; //背景颜色.默认为白色
 
 ////////////////////////////////////////////////////////////////////
-//-----------------LCD端口定义---------------- 
+//-----------------LCD端口定义----------------
 //QDtech全系列模块采用了三极管控制背光亮灭，用户也可以接PWM调节背光亮度
-#define	LCD_LED PCout(10) //LCD背光    		 PC10 
+#define	LCD_LED PCout(5) //LCD背光    		 PC10
 //如果使用官方库函数定义下列底层，速度将会下降到14帧每秒，建议采用我司推荐方法
-//以下IO定义直接操作寄存器，快速IO操作，刷屏速率可以达到28帧每秒！ 
+//以下IO定义直接操作寄存器，快速IO操作，刷屏速率可以达到28帧每秒！
 
-#define	LCD_CS_SET  GPIOC->BSRR=1<<9    //片选端口  	PC9
-#define	LCD_RS_SET	GPIOC->BSRR=1<<8    //数据/命令   	PC8	   
-#define	LCD_WR_SET	GPIOC->BSRR=1<<7    //写数据		PC7
-#define	LCD_RD_SET	GPIOC->BSRR=1<<6    //读数据		PC6
-#define	LCD_RST_SET	GPIOC->BSRR=1<<4    //复位			PC5
-								    
-#define	LCD_CS_CLR  GPIOC->BRR=1<<9     //片选端口  	PC9
-#define	LCD_RS_CLR	GPIOC->BRR=1<<8     //数据/命令  	PC8	   
-#define	LCD_WR_CLR	GPIOC->BRR=1<<7     //写数据		PC7
-#define	LCD_RD_CLR	GPIOC->BRR=1<<6     //读数据		PC6
-#define	LCD_RST_CLR	GPIOC->BRR=1<<4    //复位			PC5								    
+#define	LCD_CS_SET  GPIOC->BSRE=1<<10    //片选端口  	PC9
+#define	LCD_RS_SET	GPIOC->BSRE=1<<0    //数据/命令  	PC8
+#define	LCD_WR_SET	GPIOC->BSRE=1<<1    //写数据		PC7
+#define	LCD_RD_SET	GPIOC->BSRE=1<<2    //读数据		PC6
+#define	LCD_RST_SET	GPIOC->BSRE=1<<3    //复位			PC5
 
-#define DATAOUT(x) GPIOB->ODR=x; //数据输出
-#define DATAIN     GPIOB->IDR;   //数据输入
+#define	LCD_CS_CLR  GPIOC->BRE=1<<10    //片选端口  	PC9
+#define	LCD_RS_CLR	GPIOC->BRE=1<<0     //数据/命令  	PC8
+#define	LCD_WR_CLR	GPIOC->BRE=1<<1     //写数据		PC7
+#define	LCD_RD_CLR	GPIOC->BRE=1<<2     //读数据		PC6
+#define	LCD_RST_CLR	GPIOC->BRE=1<<3    //复位			PC5
+
+#define DATAOUT(x) GPIOE->OPTDT=x; //数据输出
+#define DATAIN     GPIOE->IPTDT;   //数据输入
 //////////////////////////////////////////////////////////////////////
 
 
@@ -94,8 +96,8 @@ extern u16  BACK_COLOR; //背景颜色.默认为白色
 
 //画笔颜色
 #define WHITE       0xFFFF
-#define BLACK      	0x0000	  
-#define BLUE       	0x001F  
+#define BLACK      	0x0000
+#define BLUE       	0x001F
 #define BRED        0XF81F
 #define GRED 			 	0XFFE0
 #define GBLUE			 	0X07FF
@@ -110,40 +112,42 @@ extern u16  BACK_COLOR; //背景颜色.默认为白色
 //GUI颜色
 
 #define DARKBLUE      	 0X01CF	//深蓝色
-#define LIGHTBLUE      	 0X7D7C	//浅蓝色  
+#define LIGHTBLUE      	 0X7D7C	//浅蓝色
 #define GRAYBLUE       	 0X5458 //灰蓝色
-//以上三色为PANEL的颜色 
- 
+//以上三色为PANEL的颜色
+
 #define LIGHTGREEN     	0X841F //浅绿色
 //#define LIGHTGRAY     0XEF5B //浅灰色(PANNEL)
 #define LGRAY 			 		0XC618 //浅灰色(PANNEL),窗体背景色
 
 #define LGRAYBLUE      	0XA651 //浅灰蓝色(中间层颜色)
 #define LBBLUE          0X2B12 //浅棕蓝色(选择条目的反色)
-	    															  
-extern u16 BACK_COLOR, POINT_COLOR ;  
+
+extern u16 BACK_COLOR, POINT_COLOR ;
 
 void LCD_Init(void);
 void LCD_DisplayOn(void);
 void LCD_DisplayOff(void);
-void LCD_Clear(u16 Color);	 
+void LCD_Clear(u16 Color);
 void LCD_SetCursor(u16 Xpos, u16 Ypos);
 void LCD_DrawPoint(u16 x,u16 y);//画点
 u16  LCD_ReadPoint(u16 x,u16 y); //读点
 void LCD_DrawLine(u16 x1, u16 y1, u16 x2, u16 y2);
-void LCD_DrawRectangle(u16 x1, u16 y1, u16 x2, u16 y2);		   
+void LCD_DrawRectangle(u16 x1, u16 y1, u16 x2, u16 y2);
 void LCD_SetWindows(u16 xStar, u16 yStar,u16 xEnd,u16 yEnd);
 void LCD_DrawPoint_16Bit(u16 color);
-u16 LCD_RD_DATA(void);//读取LCD数据									    
+u16 LCD_RD_DATA(void);//读取LCD数据
 void LCD_WriteReg(u8 LCD_Reg, u16 LCD_RegValue);
 void LCD_WR_DATA(u16 data);
 u16 LCD_ReadReg(u8 LCD_Reg);
 void LCD_WriteRAM_Prepare(void);
 void LCD_WriteRAM(u16 RGB_Code);
-u16 LCD_ReadRAM(void);		   
+u16 LCD_ReadRAM(void);
 u16 LCD_BGR2RGB(u16 c);
 void LCD_SetParam(void);
+void rt_hw_us_delay(rt_uint32_t us);
 
+void LCD_Drawbmp16(u16 x,u16 y,u16 width,u16 length,const unsigned char *p);
 
 //如果仍然觉得速度不够快，可以使用下面的宏定义,提高速度.
 //注意要去掉lcd.c中void LCD_WR_DATA(u16 data)函数定义哦
@@ -168,11 +172,11 @@ void LCD_SetParam(void);
 	LCD_WR_CLR;\
 	LCD_WR_SET;\
 	LCD_CS_SET;\
-	} 	
+	}
 #endif
 */
 
-//9320/9325 LCD寄存器  
+//9320/9325 LCD寄存器
 #define R0             0x00
 #define R1             0x01
 #define R2             0x02
@@ -280,10 +284,10 @@ void LCD_SetParam(void);
 #define R157           0x9D
 #define R192           0xC0
 #define R193           0xC1
-#define R229           0xE5							  		 
-#endif  
-	 
-	 
+#define R229           0xE5
+#endif
+
+
 
 
 

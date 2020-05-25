@@ -71,3 +71,11 @@
 .\build\keil\obj\main.o: board\msp\at32_msp.h
 .\build\keil\obj\main.o: ..\Libraries\rt_drivers\drv_gpio.h
 .\build\keil\obj\main.o: ..\..\..\include\rthw.h
+.\build\keil\obj\main.o: applications\sys.h
+.\build\keil\obj\main.o: applications\lcd.h
+.\build\keil\obj\main.o: applications\touch.h
+.\build\keil\obj\main.o: applications\gui.h
+.\build\keil\obj\main.o: applications\test.h
+.\build\keil\obj\main.o: applications\ov2640.h
+.\build\keil\obj\main.o: applications\sccb.h
+.\build\keil\obj\main.o: applications\malloc.h

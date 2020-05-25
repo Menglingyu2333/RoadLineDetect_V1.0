@@ -8,14 +8,6 @@ cwd = GetCurrentDir()
 # add the general drivers.
 src = Split("""
 main.c
-test.c
-GUI.c
-lcd.c
-ILI93xx.c
-24cxx.c
-touch.c
-myiic.c
-key.c
 """)
 
 CPPPATH = [cwd, str(Dir('#'))]

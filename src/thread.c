@@ -31,6 +31,8 @@
 #include <rthw.h>
 #include <rtthread.h>
 
+#include "at32f4xx.h"
+
 extern rt_list_t rt_thread_defunct;
 
 #ifdef RT_USING_HOOK
@@ -603,6 +605,15 @@ rt_err_t rt_thread_mdelay(rt_int32_t ms)
     return rt_thread_sleep(tick);
 }
 RTM_EXPORT(rt_thread_mdelay);
+
+void rt_hw_us_delay(rt_uint32_t us)
+{
+    rt_uint32_t delta;/* 获 得 延 时 经 过 的 tick 数 */
+    us = us * (SysTick->LOAD/(1000000/RT_TICK_PER_SECOND));
+    /* 获 得 当 前 时 间 */
+    delta = SysTick->VAL; /* 循 环 获 得 当 前 时 间， 直 到 达 到 指 定 的 时 间 后 退 出 循 环 */
+    while (delta - SysTick->VAL< us);
+}
 
 /**
  * This function will control thread behaviors according to control command.
