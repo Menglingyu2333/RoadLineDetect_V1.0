@@ -131,7 +131,7 @@ void EXTI9_5_IRQHandler(void)
 #define RGB565_RED      0xf800
 #define RGB565_GREEN    0x07e0
 #define RGB565_BLUE     0x001f
-
+#define Test
 #define Camera_THREAD_STACK_SIZE 1024
 #define Camera_THREAD_PRIORITY 10
 #define Camera_THREAD_TIMESLICE 10
