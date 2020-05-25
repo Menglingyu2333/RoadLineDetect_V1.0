@@ -29,6 +29,8 @@
 .\build\keil\obj\main.o: ..\..\..\components\drivers\include\rtdevice.h
 .\build\keil\obj\main.o: ..\..\..\components\drivers\include\ipc/poll.h
 .\build\keil\obj\main.o: ..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\build\keil\obj\main.o: ..\..\..\components\drivers\include\drivers/spi.h
+.\build\keil\obj\main.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\keil\obj\main.o: ..\..\..\components\drivers\include\drivers/serial.h
 .\build\keil\obj\main.o: ..\..\..\components\drivers\include\drivers/pin.h
 .\build\keil\obj\main.o: board\board.h
@@ -69,3 +71,11 @@
 .\build\keil\obj\main.o: board\msp\at32_msp.h
 .\build\keil\obj\main.o: ..\Libraries\rt_drivers\drv_gpio.h
 .\build\keil\obj\main.o: ..\..\..\include\rthw.h
+.\build\keil\obj\main.o: applications\sys.h
+.\build\keil\obj\main.o: applications\lcd.h
+.\build\keil\obj\main.o: applications\touch.h
+.\build\keil\obj\main.o: applications\gui.h
+.\build\keil\obj\main.o: applications\test.h
+.\build\keil\obj\main.o: applications\ov2640.h
+.\build\keil\obj\main.o: applications\sccb.h
+.\build\keil\obj\main.o: applications\malloc.h

@@ -30,11 +30,12 @@
 .\build\keil\obj\poll.o: ..\..\..\components\drivers\include\rtdevice.h
 .\build\keil\obj\poll.o: ..\..\..\components\drivers\include\ipc/poll.h
 .\build\keil\obj\poll.o: ..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\build\keil\obj\poll.o: ..\..\..\components\drivers\include\drivers/spi.h
+.\build\keil\obj\poll.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\keil\obj\poll.o: ..\..\..\components\drivers\include\drivers/serial.h
 .\build\keil\obj\poll.o: ..\..\..\components\drivers\include\drivers/pin.h
 .\build\keil\obj\poll.o: ..\..\..\components\dfs\include\dfs.h
 .\build\keil\obj\poll.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\build\keil\obj\poll.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\keil\obj\poll.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\build\keil\obj\poll.o: ..\..\..\components\dfs\include\dfs_file.h
 .\build\keil\obj\poll.o: ..\..\..\components\dfs\include\dfs_fs.h

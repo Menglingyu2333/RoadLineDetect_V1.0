@@ -38,6 +38,7 @@
 .\build\keil\obj\stubs.o: ..\..\..\components\drivers\include\rtdevice.h
 .\build\keil\obj\stubs.o: ..\..\..\components\drivers\include\ipc/poll.h
 .\build\keil\obj\stubs.o: ..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\build\keil\obj\stubs.o: ..\..\..\components\drivers\include\drivers/spi.h
 .\build\keil\obj\stubs.o: ..\..\..\components\drivers\include\drivers/serial.h
 .\build\keil\obj\stubs.o: ..\..\..\components\drivers\include\drivers/pin.h
 .\build\keil\obj\stubs.o: ..\..\..\components\dfs\include\dfs_fs.h

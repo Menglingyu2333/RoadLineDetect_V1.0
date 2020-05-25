@@ -66,5 +66,7 @@
 .\build\keil\obj\drv_usart.o: ..\..\..\components\drivers\include\rtdevice.h
 .\build\keil\obj\drv_usart.o: ..\..\..\components\drivers\include\ipc/poll.h
 .\build\keil\obj\drv_usart.o: ..\..\..\components\drivers\include\ipc/ringblk_buf.h
+.\build\keil\obj\drv_usart.o: ..\..\..\components\drivers\include\drivers/spi.h
+.\build\keil\obj\drv_usart.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\keil\obj\drv_usart.o: ..\..\..\components\drivers\include\drivers/serial.h
 .\build\keil\obj\drv_usart.o: ..\..\..\components\drivers\include\drivers/pin.h
