@@ -58,4 +58,3 @@
 .\build\keil\obj\touch.o: applications\lcd.h
 .\build\keil\obj\touch.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\keil\obj\touch.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-.\build\keil\obj\touch.o: applications\gui.h

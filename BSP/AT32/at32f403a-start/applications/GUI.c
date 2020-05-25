@@ -399,9 +399,10 @@ void GUI_DrawFont16(u16 x, u16 y, u16 fc, u16 bc, u8 *s,u8 mode)
 	for (k=0;k<HZnum;k++)
 	{
 	  if ((tfont16[k].Index[0]==*(s))&&(tfont16[k].Index[1]==*(s+1)))
-	  { 	LCD_SetWindows(x,y,x+16-1,y+16-1);
-		    for(i=0;i<16*2;i++)
-		    {
+	  {
+      LCD_SetWindows(x,y,x+16-1,y+16-1);
+	    for(i=0;i<16*2;i++)
+	    {
 				for(j=0;j<8;j++)
 		    	{
 					if(!mode) //非叠加方式
@@ -423,10 +424,7 @@ void GUI_DrawFont16(u16 x, u16 y, u16 fc, u16 bc, u8 *s,u8 mode)
 					}
 
 				}
-
 			}
-
-
 		}
 		continue;  //查找到对应点阵字库立即退出，防止多个汉字重复取模带来影响
 	}

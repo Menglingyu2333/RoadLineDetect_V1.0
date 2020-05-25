@@ -92,7 +92,7 @@ uint8_t OV2640_Init(void)
 	reg|=SCCB_RD_Reg(OV2640_SENSOR_MIDL);	//读取厂家ID 低八位
 	if(reg!=OV2640_MID)
 	{
-		printf("MID:%d\r\n",reg);
+		rt_kprintf("MID:%d\r\n",reg);
 		return 1;
 	}
 	reg=SCCB_RD_Reg(OV2640_SENSOR_PIDH);	//读取厂家ID 高八位
@@ -100,7 +100,7 @@ uint8_t OV2640_Init(void)
 	reg|=SCCB_RD_Reg(OV2640_SENSOR_PIDL);	//读取厂家ID 低八位
 	if(reg!=OV2640_PID)
 	{
-		printf("HID:%d\r\n",reg);
+		rt_kprintf("HID:%d\r\n",reg);
 		return 2;
 	}
  	//初始化 OV2640,采用SXGA分辨率(1600*1200)
@@ -109,12 +109,12 @@ uint8_t OV2640_Init(void)
 	   	SCCB_WR_Reg(ov2640_uxga_init_reg_tbl[i][0],ov2640_uxga_init_reg_tbl[i][1]);
  	}
 
-    rt_thread_mdelay(500);
-    OV2640_RGB565_Mode();
-    OV2640_OutSize_Set(OV2640_JPEG_WIDTH,OV2640_JPEG_HEIGHT);
-    ov2640_speed_ctrl();
+  rt_thread_mdelay(500);
+  OV2640_YUV422_Mode();
+  OV2640_OutSize_Set(OV2640_JPEG_WIDTH,OV2640_JPEG_HEIGHT);
+  ov2640_speed_ctrl();
 
-  	return 0x00; 	//ok
+	return 0x00; 	//ok
 }
 //OV2640切换为JPEG模式
 void OV2640_JPEG_Mode(void)
@@ -140,6 +140,11 @@ void OV2640_RGB565_Mode(void)
 	{
 		SCCB_WR_Reg(ov2640_rgb565_reg_tbl[i][0],ov2640_rgb565_reg_tbl[i][1]);
 	}
+}
+void OV2640_YUV422_Mode(void)
+{
+	SCCB_WR_Reg(0xFF, 0x00);
+	SCCB_WR_Reg(0xDA, 0x01);
 }
 //自动曝光设置参数表,支持5个等级
 const static uint8_t OV2640_AUTOEXPOSURE_LEVEL[5][8]=

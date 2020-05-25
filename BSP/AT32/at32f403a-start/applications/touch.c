@@ -4,7 +4,7 @@
 #include "stdlib.h"
 #include "math.h"
 //#include "24cxx.h"
-#include "gui.h"
+//#include "gui.h"
 
 _m_tp_dev tp_dev=
 {

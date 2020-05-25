@@ -58,7 +58,7 @@ void mymemset(void *s,uint8_t c,uint32_t count)
 //memx:所属内存块
 void my_mem_init(uint8_t memx)
 {
-    mymemset(mallco_dev.memmap[memx], 0,memtblsize[memx]*2);//内存状态表数据清零
+  mymemset(mallco_dev.memmap[memx], 0,memtblsize[memx]*2);//内存状态表数据清零
 	mymemset(mallco_dev.membase[memx], 0,memsize[memx]);	//内存池所有数据清零
 	mallco_dev.memrdy[memx]=1;								//内存管理初始化OK
 }
@@ -83,7 +83,7 @@ uint32_t my_mem_malloc(uint8_t memx,uint32_t size)
 {
     signed long offset=0;
     uint32_t nmemb;	//需要的内存块数
-	uint32_t cmemb=0;//连续空内存块数
+	  uint32_t cmemb=0;//连续空内存块数
     uint32_t i;
     if(!mallco_dev.memrdy[memx])mallco_dev.init(memx);//未初始化,先执行初始化
     if(size==0)return 0XFFFFFFFF;//不需要分配
