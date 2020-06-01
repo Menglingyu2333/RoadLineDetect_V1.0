@@ -56,3 +56,5 @@
 .\build\keil\obj\lcd.o: ..\..\..\include\rtthread.h
 .\build\keil\obj\lcd.o: ..\..\..\components\finsh\finsh_api.h
 .\build\keil\obj\lcd.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\keil\obj\lcd.o: applications\LaneDetect.h
+.\build\keil\obj\lcd.o: applications\FONT.h
