@@ -26,12 +26,20 @@ u16 yuv422_to_Gray(u16 yuv422)
 	return Gray;
 }
 
-u16 yuv422_y_to_bitmap(u8 threshold,u16 yuv422)
+u16 yuv_8_to_RGBGray(u8 yuv422)
+{
+	u16 Gray;
+	Gray =(((yuv422>>3)<<11)|((yuv422>>2)<<5)|((yuv422>>3)<<0));
+	return Gray;
+}
+
+u16 yuv422_y_to_bitmap(u8 threshold,u8 yuv422)
 {
 	u16 bitmap;
 	u8 temp;
 
-	temp = (u8)(yuv422>>8);
+//	temp = (u8)(yuv422>>8);
+	temp = yuv422;
 
 	if(temp >= threshold)
 	{
@@ -43,5 +51,39 @@ u16 yuv422_y_to_bitmap(u8 threshold,u16 yuv422)
 	}
 
 	return bitmap;
+}
+unsigned char GetMedianNum(int * bArray, int iFilterLen)
+{
+	int i,j;// 循环变量
+	unsigned char bTemp;
+
+	// 用冒泡法对数组进行排序
+	for (j = 0; j < iFilterLen - 1; j ++)
+	{
+		for (i = 0; i < iFilterLen - j - 1; i ++)
+		{
+			if (bArray[i] > bArray[i + 1])
+			{
+				// 互换
+				bTemp = bArray[i];
+				bArray[i] = bArray[i + 1];
+				bArray[i + 1] = bTemp;
+			}
+		}
+	}
+
+	// 计算中值
+	if ((iFilterLen & 1) > 0)
+	{
+		// 数组有奇数个元素，返回中间一个元素
+		bTemp = bArray[(iFilterLen + 1) / 2];
+	}
+	else
+	{
+		// 数组有偶数个元素，返回中间两个元素平均值
+		bTemp = (bArray[iFilterLen / 2] + bArray[iFilterLen / 2 + 1]) / 2;
+	}
+
+	return bTemp;
 }
 

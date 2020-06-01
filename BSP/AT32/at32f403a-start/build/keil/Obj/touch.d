@@ -57,4 +57,5 @@
 .\build\keil\obj\touch.o: ..\..\..\components\finsh\finsh_api.h
 .\build\keil\obj\touch.o: applications\lcd.h
 .\build\keil\obj\touch.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\keil\obj\touch.o: applications\LaneDetect.h
 .\build\keil\obj\touch.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

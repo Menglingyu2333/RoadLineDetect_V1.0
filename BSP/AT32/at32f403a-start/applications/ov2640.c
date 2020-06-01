@@ -111,7 +111,12 @@ uint8_t OV2640_Init(void)
 
   rt_thread_mdelay(500);
   OV2640_YUV422_Mode();
-  OV2640_OutSize_Set(OV2640_JPEG_WIDTH,OV2640_JPEG_HEIGHT);
+//  OV2640_Window_Set(0,0,240,160);
+//  OV2640_ImageSize_Set(240,160);
+//  OV2640_ImageWin_Set((OV2640_TOTAL_WIDTH-ImageWidth)/2,
+//                      (OV2640_TOTAL_HEIGHT-ImageHeight)/2,
+//                       ImageWidth,ImageHeight);
+  OV2640_OutSize_Set(ImageWidth,ImageHeight);
   ov2640_speed_ctrl();
 
 	return 0x00; 	//ok
@@ -402,6 +407,7 @@ uint8_t OV2640_OutSize_Set(uint16_t width,uint16_t height)
 	outh=height/4;
 	SCCB_WR_Reg(0XFF,0X00);
 	SCCB_WR_Reg(0XE0,0X04);
+	SCCB_WR_Reg(0X50,0X89);
 	SCCB_WR_Reg(0X5A,outw&0XFF);		//设置OUTW的低八位
 	SCCB_WR_Reg(0X5B,outh&0XFF);		//设置OUTH的低八位
 	temp=(outw>>8)&0X03;
@@ -493,7 +499,7 @@ uint8_t ov2640_jpg_photo()
 //	OV2640_JPEG_Mode();							//切换为JPEG模式
     OV2640_RGB565_Mode();
 
-  	OV2640_OutSize_Set(OV2640_JPEG_WIDTH,OV2640_JPEG_HEIGHT);
+  	OV2640_OutSize_Set(ImageWidth,ImageHeight);
 	SCCB_WR_Reg(0XFF,0X00);
 	SCCB_WR_Reg(0XD3,30);
 	SCCB_WR_Reg(0XFF,0X01);

@@ -589,6 +589,21 @@ void LCD_Drawbmp16(u16 x,u16 y,u16 width,u16 length,const unsigned char *p)
 
  }
 
+ void LCD_DrawYVU8Img(u16 x,u16 y,u16 width,u16 length,const unsigned char *p)
+ {
+    int i;
+//    unsigned char picH,picL;
+//    LCD_SetWindows(x,y,x+width-1,y+length-1);//窗口设置
+    for(i=0;i<width*length;i++)
+    {
+//      picL=*(p+i*2);  //数据低位在前
+//      picH=*(p+i*2+1);
+      LCD_DrawPoint_16Bit(yuv_8_to_RGBGray(*(p+i)));
+    }
+//    LCD_SetWindows(0,0,lcddev.width-1,lcddev.height-1);//恢复显示窗口为全屏
+
+  }
+
 
  //******************************************************************
  //函数名：  gui_circle

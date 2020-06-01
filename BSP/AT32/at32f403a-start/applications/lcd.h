@@ -2,7 +2,7 @@
 #define __LCD_H
 #include "sys.h"
 #include "stdlib.h"
-
+#include "LaneDetect.h"
 
 /****************************************************************************************************
 //=======================================液晶屏数据线接线==========================================//
@@ -147,6 +147,7 @@ void LCD_SetParam(void);
 void rt_hw_us_delay(rt_uint32_t us);
 
 void LCD_Drawbmp16(u16 x,u16 y,u16 width,u16 length,const unsigned char *p);
+void LCD_DrawYVU8Img(u16 x,u16 y,u16 width,u16 length,const unsigned char *p);
 void LCD_DrawLine(u16 x1, u16 y1, u16 x2, u16 y2);
 void gui_circle(int xc, int yc,u16 c,int r, int fill);
 void LCD_ShowString(u16 x,u16 y,u8 size,u8 *p,u8 mode);

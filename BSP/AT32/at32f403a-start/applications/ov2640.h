@@ -115,8 +115,11 @@
 #define OV2640_SENSOR_HISTO_LOW  0x61
 #define OV2640_SENSOR_HISTO_HIGH 0x62
 
-#define OV2640_JPEG_WIDTH   240  //JPEG拍照的宽度
-#define OV2640_JPEG_HEIGHT  160  //JPEG拍照的高度
+#define OV2640_TOTAL_WIDTH   1600  //JPEG拍照的宽度
+#define OV2640_TOTAL_HEIGHT  1200  //JPEG拍照的高度
+
+#define ImageWidth   240  //JPEG拍照的宽度
+#define ImageHeight  160  //JPEG拍照的高度
 
 extern uint8_t ov2640_framebuf[];
 
