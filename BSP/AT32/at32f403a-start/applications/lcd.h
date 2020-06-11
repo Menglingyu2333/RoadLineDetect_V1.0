@@ -124,6 +124,10 @@ extern u16  BACK_COLOR; //背景颜色.默认为白色
 
 extern u16 BACK_COLOR, POINT_COLOR ;
 
+//#define YUV_to_Bin(YUV,threshold)  (YUV) >= (threshold) ? (0xFFFF):(0x0000)
+
+#define ColorCvt(YUV)  (YUV==0 ? BLACK:(YUV==0x01?RED:WHITE))
+
 void LCD_Init(void);
 void LCD_DisplayOn(void);
 void LCD_DisplayOff(void);
@@ -156,6 +160,8 @@ void LCD_ShowChar(u16 x,u16 y,u16 fc, u16 bc, u8 num,u8 size,u8 mode);
 u32 mypow(u8 m,u8 n);
 void _draw_circle_8(int xc, int yc, int x, int y, u16 c);
 void GUI_DrawPoint(u16 x,u16 y,u16 color);
+void LCD_DrawBinImg(u16 x,u16 y,u16 width,u16 length,u8 threshold,const unsigned char *p);
+void LCD_DrawBinImg_8bit(u16 x,u16 y,u16 width,u16 length,const unsigned char *p);
 
 //如果仍然觉得速度不够快，可以使用下面的宏定义,提高速度.
 //注意要去掉lcd.c中void LCD_WR_DATA(u16 data)函数定义哦

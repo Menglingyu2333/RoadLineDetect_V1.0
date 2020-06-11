@@ -19,7 +19,7 @@ extern "C" {
 #endif
 
 /* Internal SRAM memory size[Kbytes] <96>, Default: 96*/
-#define AT32_SRAM_SIZE      96
+#define AT32_SRAM_SIZE      224
 #define AT32_SRAM_END       (0x20000000 + AT32_SRAM_SIZE * 1024)
 
 #if defined(__CC_ARM) || defined(__CLANG_ARM)

@@ -588,21 +588,44 @@ void LCD_Drawbmp16(u16 x,u16 y,u16 width,u16 length,const unsigned char *p)
    LCD_SetWindows(0,0,lcddev.width-1,lcddev.height-1);//恢复显示窗口为全屏
 
  }
+void LCD_DrawBinImg(u16 x,u16 y,u16 width,u16 length,u8 threshold,const unsigned char *p)
+{
+  int i;
+  LCD_SetWindows(x,y,x+width-1,y+length-1);//窗口设置
+  for(i=0;i<width*length;i++)
+  {
+//    LCD_DrawPoint_16Bit(YUV_to_Bin(*(p+i),threshold));ColorCvt
+    LCD_DrawPoint_16Bit(ColorCvt(*(p+i)));
+  }
+}
 
- void LCD_DrawYVU8Img(u16 x,u16 y,u16 width,u16 length,const unsigned char *p)
- {
-    int i;
+void LCD_DrawBinImg_8bit(u16 x,u16 y,u16 width,u16 length,const unsigned char *p)
+{
+  int i;
+  u16 temp;
+  LCD_SetWindows(x,y,x+width-1,y+length-1);//窗口设置
+  for(i=0;i<width*length;i++)
+  {
+    temp = 0 ;
+    temp=*(p+i);
+    LCD_DrawPoint_16Bit((temp<<8 | temp));
+  }
+}
+
+void LCD_DrawYVU8Img(u16 x,u16 y,u16 width,u16 length,const unsigned char *p)
+{
+   int i;
 //    unsigned char picH,picL;
-//    LCD_SetWindows(x,y,x+width-1,y+length-1);//窗口设置
-    for(i=0;i<width*length;i++)
-    {
+   LCD_SetWindows(x,y,x+width-1,y+length-1);//窗口设置
+   for(i=0;i<width*length;i++)
+   {
 //      picL=*(p+i*2);  //数据低位在前
 //      picH=*(p+i*2+1);
-      LCD_DrawPoint_16Bit(yuv_8_to_RGBGray(*(p+i)));
-    }
+     LCD_DrawPoint_16Bit(yuv_8_to_RGBGray(*(p+i)));
+   }
 //    LCD_SetWindows(0,0,lcddev.width-1,lcddev.height-1);//恢复显示窗口为全屏
 
-  }
+ }
 
 
  //******************************************************************

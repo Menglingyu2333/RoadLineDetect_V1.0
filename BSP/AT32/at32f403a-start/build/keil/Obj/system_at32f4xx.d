@@ -1,7 +1,7 @@
 .\build\keil\obj\system_at32f4xx.o: board\msp\system_at32f4xx.c
 .\build\keil\obj\system_at32f4xx.o: ..\Libraries\AT32_Std_Driver\CMSIS\AT32\AT32F4xx\inc\at32f4xx.h
 .\build\keil\obj\system_at32f4xx.o: ..\Libraries\AT32_Std_Driver\CMSIS\core_cm4.h
-.\build\keil\obj\system_at32f4xx.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\keil\obj\system_at32f4xx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\build\keil\obj\system_at32f4xx.o: ..\Libraries\AT32_Std_Driver\CMSIS\core_cmInstr.h
 .\build\keil\obj\system_at32f4xx.o: ..\Libraries\AT32_Std_Driver\CMSIS\cmsis_armcc.h
 .\build\keil\obj\system_at32f4xx.o: ..\Libraries\AT32_Std_Driver\CMSIS\core_cmFunc.h

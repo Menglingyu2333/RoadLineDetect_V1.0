@@ -119,6 +119,12 @@ uint8_t OV2640_Init(void)
   OV2640_OutSize_Set(ImageWidth,ImageHeight);
   ov2640_speed_ctrl();
 
+	for(i = 0; i < 10; i++) //丢弃10帧，等待OV2640自动调节好（曝光白平衡之类的）
+	{
+		while(OV2640_VSYNC == 1);
+		while(OV2640_VSYNC == 0);
+	}
+
 	return 0x00; 	//ok
 }
 //OV2640切换为JPEG模式

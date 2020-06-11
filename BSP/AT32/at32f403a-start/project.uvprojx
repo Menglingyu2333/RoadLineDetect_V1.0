@@ -472,16 +472,6 @@
               <FilePath>.\applications\lcd.c</FilePath>
             </File>
             <File>
-              <FileName>touch.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\touch.c</FilePath>
-            </File>
-            <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\key.c</FilePath>
-            </File>
-            <File>
               <FileName>ov2640.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\ov2640.c</FilePath>
