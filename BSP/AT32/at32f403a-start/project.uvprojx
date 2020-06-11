@@ -472,26 +472,6 @@
               <FilePath>.\applications\lcd.c</FilePath>
             </File>
             <File>
-              <FileName>GUI.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\GUI.c</FilePath>
-            </File>
-            <File>
-              <FileName>touch.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\touch.c</FilePath>
-            </File>
-            <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\key.c</FilePath>
-            </File>
-            <File>
-              <FileName>malloc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\malloc.c</FilePath>
-            </File>
-            <File>
               <FileName>ov2640.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\ov2640.c</FilePath>
@@ -500,6 +480,11 @@
               <FileName>sccb.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\sccb.c</FilePath>
+            </File>
+            <File>
+              <FileName>LaneDetect.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\LaneDetect.c</FilePath>
             </File>
           </Files>
         </Group>

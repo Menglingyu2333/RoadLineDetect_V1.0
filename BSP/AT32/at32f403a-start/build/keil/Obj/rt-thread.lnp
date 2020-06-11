@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp.sp
+--cpu=Cortex-M4.fp
 ".\build\keil\obj\clock.o"
 ".\build\keil\obj\components.o"
 ".\build\keil\obj\device.o"
@@ -16,12 +16,9 @@
 ".\build\keil\obj\timer.o"
 ".\build\keil\obj\main.o"
 ".\build\keil\obj\lcd.o"
-".\build\keil\obj\gui.o"
-".\build\keil\obj\touch.o"
-".\build\keil\obj\key.o"
-".\build\keil\obj\malloc.o"
 ".\build\keil\obj\ov2640.o"
 ".\build\keil\obj\sccb.o"
+".\build\keil\obj\lanedetect.o"
 ".\build\keil\obj\board.o"
 ".\build\keil\obj\at32_msp.o"
 ".\build\keil\obj\system_at32f4xx.o"

@@ -3,7 +3,6 @@
 #include "sys.h"
 #include "sccb.h"
 
-#include <rtthread.h>
 
 //////////////////////////////////////////////////////////////////////////////////
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -116,8 +115,11 @@
 #define OV2640_SENSOR_HISTO_LOW  0x61
 #define OV2640_SENSOR_HISTO_HIGH 0x62
 
-#define OV2640_JPEG_WIDTH	240	//JPEG拍照的宽度
-#define OV2640_JPEG_HEIGHT	240  //JPEG拍照的高度
+#define OV2640_TOTAL_WIDTH   1600  //JPEG拍照的宽度
+#define OV2640_TOTAL_HEIGHT  1200  //JPEG拍照的高度
+
+#define ImageWidth   240  //JPEG拍照的宽度
+#define ImageHeight  160  //JPEG拍照的高度
 
 extern uint8_t ov2640_framebuf[];
 
@@ -125,6 +127,7 @@ extern uint8_t ov2640_framebuf[];
 uint8_t OV2640_Init(void);
 void OV2640_JPEG_Mode(void);
 void OV2640_RGB565_Mode(void);
+void OV2640_YUV422_Mode(void);
 void OV2640_Auto_Exposure(uint8_t level);
 void OV2640_Light_Mode(uint8_t mode);
 void OV2640_Color_Saturation(uint8_t sat);

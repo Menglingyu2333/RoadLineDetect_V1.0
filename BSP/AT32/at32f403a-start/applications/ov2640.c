@@ -92,7 +92,7 @@ uint8_t OV2640_Init(void)
 	reg|=SCCB_RD_Reg(OV2640_SENSOR_MIDL);	//读取厂家ID 低八位
 	if(reg!=OV2640_MID)
 	{
-		printf("MID:%d\r\n",reg);
+		rt_kprintf("MID:%d\r\n",reg);
 		return 1;
 	}
 	reg=SCCB_RD_Reg(OV2640_SENSOR_PIDH);	//读取厂家ID 高八位
@@ -100,7 +100,7 @@ uint8_t OV2640_Init(void)
 	reg|=SCCB_RD_Reg(OV2640_SENSOR_PIDL);	//读取厂家ID 低八位
 	if(reg!=OV2640_PID)
 	{
-		printf("HID:%d\r\n",reg);
+		rt_kprintf("HID:%d\r\n",reg);
 		return 2;
 	}
  	//初始化 OV2640,采用SXGA分辨率(1600*1200)
@@ -109,12 +109,23 @@ uint8_t OV2640_Init(void)
 	   	SCCB_WR_Reg(ov2640_uxga_init_reg_tbl[i][0],ov2640_uxga_init_reg_tbl[i][1]);
  	}
 
-    rt_thread_mdelay(500);
-    OV2640_RGB565_Mode();
-    OV2640_OutSize_Set(OV2640_JPEG_WIDTH,OV2640_JPEG_HEIGHT);
-    ov2640_speed_ctrl();
+  rt_thread_mdelay(500);
+  OV2640_YUV422_Mode();
+//  OV2640_Window_Set(0,0,240,160);
+//  OV2640_ImageSize_Set(240,160);
+//  OV2640_ImageWin_Set((OV2640_TOTAL_WIDTH-ImageWidth)/2,
+//                      (OV2640_TOTAL_HEIGHT-ImageHeight)/2,
+//                       ImageWidth,ImageHeight);
+  OV2640_OutSize_Set(ImageWidth,ImageHeight);
+  ov2640_speed_ctrl();
 
-  	return 0x00; 	//ok
+	for(i = 0; i < 10; i++) //丢弃10帧，等待OV2640自动调节好（曝光白平衡之类的）
+	{
+		while(OV2640_VSYNC == 1);
+		while(OV2640_VSYNC == 0);
+	}
+
+	return 0x00; 	//ok
 }
 //OV2640切换为JPEG模式
 void OV2640_JPEG_Mode(void)
@@ -140,6 +151,11 @@ void OV2640_RGB565_Mode(void)
 	{
 		SCCB_WR_Reg(ov2640_rgb565_reg_tbl[i][0],ov2640_rgb565_reg_tbl[i][1]);
 	}
+}
+void OV2640_YUV422_Mode(void)
+{
+	SCCB_WR_Reg(0xFF, 0x00);
+	SCCB_WR_Reg(0xDA, 0x01);
 }
 //自动曝光设置参数表,支持5个等级
 const static uint8_t OV2640_AUTOEXPOSURE_LEVEL[5][8]=
@@ -397,6 +413,7 @@ uint8_t OV2640_OutSize_Set(uint16_t width,uint16_t height)
 	outh=height/4;
 	SCCB_WR_Reg(0XFF,0X00);
 	SCCB_WR_Reg(0XE0,0X04);
+	SCCB_WR_Reg(0X50,0X89);
 	SCCB_WR_Reg(0X5A,outw&0XFF);		//设置OUTW的低八位
 	SCCB_WR_Reg(0X5B,outh&0XFF);		//设置OUTH的低八位
 	temp=(outw>>8)&0X03;
@@ -488,7 +505,7 @@ uint8_t ov2640_jpg_photo()
 //	OV2640_JPEG_Mode();							//切换为JPEG模式
     OV2640_RGB565_Mode();
 
-  	OV2640_OutSize_Set(OV2640_JPEG_WIDTH,OV2640_JPEG_HEIGHT);
+  	OV2640_OutSize_Set(ImageWidth,ImageHeight);
 	SCCB_WR_Reg(0XFF,0X00);
 	SCCB_WR_Reg(0XD3,30);
 	SCCB_WR_Reg(0XFF,0X01);
