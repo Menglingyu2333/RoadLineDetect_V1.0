@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\build\keil\Obj\rt-thread.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\build\keil\Obj\rt-thread.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jun 10 18:35:16 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Jun 12 12:17:03 2020
 <BR><P>
 <H3>Maximum Stack Usage =       1108 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1026,9 +1026,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
 </UL>
 
 <P><STRONG><a name="[ec]"></a>_printf_char_common</STRONG> (Thumb, 32 bytes, Stack size 64 bytes, _printf_char_common.o(.text))
@@ -1386,12 +1386,12 @@ Global Symbols
 <P><STRONG><a name="[126]"></a>EdgeDetect</STRONG> (Thumb, 260 bytes, Stack size 88 bytes, lanedetect.o(i.EdgeDetect))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = EdgeDetect &rArr; __hardfp_round &rArr; __aeabi_dsub
 </UL>
-<BR>[Calls]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_round
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_round
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
 </UL>
 <BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera_thread_entry
 </UL>
@@ -1477,8 +1477,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Filter
 </UL>
 
-<P><STRONG><a name="[128]"></a>HoughLineDetect</STRONG> (Thumb, 884 bytes, Stack size 104 bytes, lanedetect.o(i.HoughLineDetect))
-<BR><BR>[Stack]<UL><LI>Max Depth = 604<LI>Call Chain = HoughLineDetect &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; list_thread &rArr; object_split &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
+<P><STRONG><a name="[128]"></a>HoughLineDetect</STRONG> (Thumb, 888 bytes, Stack size 128 bytes, lanedetect.o(i.HoughLineDetect))
+<BR><BR>[Stack]<UL><LI>Max Depth = 628<LI>Call Chain = HoughLineDetect &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; list_thread &rArr; object_split &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_memset
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_malloc
@@ -5939,8 +5939,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_timer_entry
 </UL>
 
-<P><STRONG><a name="[63]"></a>Camera_thread_entry</STRONG> (Thumb, 332 bytes, Stack size 40 bytes, main.o(i.Camera_thread_entry))
-<BR><BR>[Stack]<UL><LI>Max Depth = 644<LI>Call Chain = Camera_thread_entry &rArr; HoughLineDetect &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; list_thread &rArr; object_split &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
+<P><STRONG><a name="[63]"></a>Camera_thread_entry</STRONG> (Thumb, 334 bytes, Stack size 40 bytes, main.o(i.Camera_thread_entry))
+<BR><BR>[Stack]<UL><LI>Max Depth = 668<LI>Call Chain = Camera_thread_entry &rArr; HoughLineDetect &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; list_thread &rArr; object_split &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_malloc
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_kprintf
