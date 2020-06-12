@@ -105,11 +105,11 @@ static void Camera_thread_entry(void * parameter)
     //边缘检测
   	EdgeDetect(ImageBuf, ImageBufProc, ImageWidth, ImageWidth, ImageHeight);
     //灰度图像二值化
-  	Image_YUV2Bitmap(ImageBufProc, ImageBufProc, ImageWidth, ImageHeight, 90);
+  	Image_YUV2Bitmap(ImageBufProc, ImageBufProc, ImageWidth, ImageHeight, 120);
   	//霍夫变换检测直线
   	HoughLineDetect(ImageBufProc);
     //显示最终处理完的图像
-  	LCD_DrawBinImg(0, ImageHeight, ImageWidth, ImageHeight, 90, ImageBufProc);
+  	LCD_DrawBinImg(0, ImageHeight, ImageWidth, ImageHeight, 120, ImageBufProc);
   }
 }
 

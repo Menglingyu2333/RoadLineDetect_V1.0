@@ -188,9 +188,7 @@ void EdgeDetect(unsigned char* pBmpBuf,unsigned char* pBmpBuf2,int lineByte,int 
 #define mk_2  (k_end_2-k_begin_2)     //极坐标下角度最大值
 #define mp    288                   //极坐标下长度最大值，即参与计算的图像对角线长度，
                                     //=sqrt((ImgHEd-ImgHBgn)*(ImgHEd-ImgHBgn)+(ImgWEd-ImgWBgn)*(ImgWEd-ImgWBgn))
-#define TwoDArrayGet(Array,x,y,xLen)	*(Array+x*xLen+y)
-int kmax_1,pmax_1;
-int kmax_2,pmax_2;
+#define TwoDArrayGet(Array,x,y,xLen)	(*((u8*)(Array+x*xLen+y)))
 int HoughLineDetect(u8* Imagebuf)
 {
   int i,j;
@@ -198,7 +196,9 @@ int HoughLineDetect(u8* Imagebuf)
 	int threshold;
   u8* PointBuf1;
   u8* PointBuf2;
-#define PointBuf1_get(k,p)  (*(PointBuf1+k*mk_1+p))
+//#define PointBuf1_get(k,p)  (*(PointBuf1+k*mk_1+p))
+
+	int kmax_1,pmax_1,kmax_2,pmax_2;
 
   PointBuf1=(u8*)rt_malloc(mk_1 * mp);
   if(!PointBuf1)
@@ -223,6 +223,7 @@ int HoughLineDetect(u8* Imagebuf)
           p=(int)(i*cos(pi*k/180)+j*sin(pi*k/180));//p hough变换中距离参数
           p=(int)(p/2+mp/2); //对p值优化防止为负
           TwoDArrayGet(PointBuf1,k,p,mk_1)+=1; //对变换域中对应重复出现的点累加
+//          rt_kprintf("P=%X,V=%02X\n",(u32)(PointBuf1+k*mk_1+p),TwoDArrayGet(PointBuf1,k,p,mk_1));
         }
         for(k=k_begin_2;k<k_end_2;k+=k_resolution)
         {
@@ -237,10 +238,12 @@ int HoughLineDetect(u8* Imagebuf)
   //在范围1内寻找最长直线
   kmax_1=0; //最长直线的角度
   pmax_1=0; //最长直线的距离
+  threshold = 0;
   for(i=k_begin_1;i<k_end_1;i+=k_resolution)
   {
     for(j=1;j<mp;j++) //mp为原图对角线距离
     {
+//      rt_kprintf("P=%X,V=%02X\n",(u32)(PointBuf1+i*mk_1+j),TwoDArrayGet(PointBuf1,i,j,mk_1));
       if(TwoDArrayGet(PointBuf1,i,j,mk_1)>threshold) //找出最长直线 threshold为中间变量用于比较
       {
         threshold=TwoDArrayGet(PointBuf1,i,j,mk_1);
@@ -252,6 +255,7 @@ int HoughLineDetect(u8* Imagebuf)
   //在范围2内寻找最长直线
   kmax_2=0; //最长直线的角度
   pmax_2=0; //最长直线的距离
+  threshold = 0;
   for(i=k_begin_2;i<k_end_2;i+=k_resolution)
   {
     for(j=1;j<mp;j++) //mp为原图对角线距离
